@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
+
+/* ─── Reset & Base ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Design Tokens ─────────────────────────────────────────────── */
+:root {
+  --accent: #e8502a;
+  --accent-soft: #f4795e;
+  --surface: #f5f2ed;
+  --surface-2: #ede9e2;
+  --text: #1a1714;
+  --muted: #7a7066;
+  --card-bg: rgba(255, 252, 248, 0.72);
+  --border: rgba(26, 23, 20, 0.1);
+  --shadow: 0 4px 32px rgba(26, 23, 20, 0.08);
+  --shadow-lg: 0 12px 60px rgba(26, 23, 20, 0.14);
+  --radius: 20px;
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+[data-theme="dark"] {
+  --accent: #ff6b45;
+  --accent-soft: #ff8c6b;
+  --surface: #12100e;
+  --surface-2: #1c1916;
+  --text: #f0ebe4;
+  --muted: #8a8078;
+  --card-bg: rgba(28, 25, 22, 0.82);
+  --border: rgba(240, 235, 228, 0.09);
+  --shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Document ───────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.65;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 600;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+/* ─── Glass Card ─────────────────────────────────────────────────── */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─── Hero Section ───────────────────────────────────────────────── */
+.hero-grid {
+  background: linear-gradient(
+    135deg,
+    var(--surface-2) 0%,
+    var(--surface) 60%,
+    color-mix(in srgb, var(--accent) 6%, var(--surface)) 100%
+  );
+  position: relative;
+}
+
+.hero-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 80% 40%,
+    color-mix(in srgb, var(--accent) 8%, transparent) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ─── Floating Shapes ────────────────────────────────────────────── */
+.floating-shape {
+  background: radial-gradient(
+    circle at 35% 35%,
+    color-mix(in srgb, var(--accent) 30%, transparent),
+    color-mix(in srgb, var(--accent-soft) 10%, transparent)
+  );
+  filter: blur(32px);
+}
+
+/* ─── Chip / Tag ─────────────────────────────────────────────────── */
+.chip {
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.chip:hover {
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface));
+}
+
+/* ─── Project Card ───────────────────────────────────────────────── */
+.project-card {
+  transition:
+    transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.32s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-card img {
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ─── Skill Bars ─────────────────────────────────────────────────── */
+.skill-bar-track {
+  background: var(--border);
+  border-radius: 99px;
+  height: 6px;
+  overflow: hidden;
+}
+
+/* ─── Buttons & Links ────────────────────────────────────────────── */
+button,
+a[class] {
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+a.inline-flex:hover,
+button.inline-flex:hover {
+  transform: translateY(-1px);
+}
+
+/* ─── Inputs / Form ──────────────────────────────────────────────── */
+input,
+textarea {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background: color-mix(in srgb, var(--surface) 80%, white);
+  color: var(--text);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background: color-mix(in srgb, var(--surface-2) 90%, white 10%);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ─── Section Spacing ────────────────────────────────────────────── */
+section {
+  position: relative;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 40%, var(--surface));
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ─── Selection ──────────────────────────────────────────────────── */
+::selection {
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  color: var(--text);
+}
+
+/* ─── Text Color Utilities ───────────────────────────────────────── */
+.text-\[var\(--muted\)\] {
+  font-weight: 300;
+}
+
+/* ─── Responsive Tweaks ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* ─── Dark mode card / input overrides ──────────────────────────── */
+[data-theme="dark"] .glass-card {
+  background: var(--card-bg);
+}
+
+[data-theme="dark"] .project-card img {
+  opacity: 0.9;
+}
+
+[data-theme="dark"] span.rounded-full.border.border-black\/10 {
+  background: var(--surface-2);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+[data-theme="dark"] .hero-grid {
+  background: linear-gradient(
+    135deg,
+    var(--surface-2) 0%,
+    var(--surface) 60%,
+    color-mix(in srgb, var(--accent) 4%, var(--surface)) 100%
+  );
+}
