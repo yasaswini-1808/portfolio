@@ -643,13 +643,13 @@ function App() {
                 Download Resume <ArrowRight className="h-4 w-4" />
               </MagneticBtn>
               <MagneticBtn
-                href="https://github.com/yasasswini-1808"
+                href="https://github.com/yasaswini-1808"
                 className="btn btn--ghost"
               >
                 <Github className="h-4 w-4" /> GitHub
               </MagneticBtn>
               <MagneticBtn
-                href="https://linkedin.com/in/Yasaswini-Arigela"
+                href="https://www.linkedin.com/in/yasaswini-arigela-b0a345333/"
                 className="btn btn--ghost"
               >
                 <Linkedin className="h-4 w-4" /> LinkedIn
