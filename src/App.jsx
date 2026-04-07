@@ -1190,8 +1190,8 @@ function App() {
                 <div className="contact-links">
                   {[
                     {
-                      label: "yasaswini@email.com",
-                      href: "mailto:yasaswini@email.com",
+                      label: "yasaswiniarigela18@gmail.com",
+                      href: "mailto:yasaswiniarigela18@gmail.com",
                       icon: <Mail className="h-4 w-4" />,
                     },
                     {
@@ -1200,7 +1200,7 @@ function App() {
                       icon: <Linkedin className="h-4 w-4" />,
                     },
                     {
-                      label: "github.com/yasasswini-1808",
+                      label: "github.com/yasaswini-1808",
                       href: "https://github.com/yasaswini-1808",
                       icon: <Github className="h-4 w-4" />,
                     },
