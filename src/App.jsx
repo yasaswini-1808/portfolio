@@ -207,7 +207,7 @@ const stats = [
 const internships = [
   {
     role: "Django Backend Intern",
-    company: "Company Name",
+    company: "Hippocloud",
     duration: "2 Months",
     period: "Jun 2024 – Aug 2024",
     type: "Internship",
@@ -218,7 +218,7 @@ const internships = [
   },
   {
     role: "MERN Stack Intern",
-    company: "Company Name",
+    company: "OrcadeHub",
     duration: "2 Months",
     period: "Sep 2024 – Nov 2024",
     type: "Internship",
@@ -1196,12 +1196,12 @@ function App() {
                     },
                     {
                       label: "linkedin.com/in/Yasaswini-Arigela",
-                      href: "https://linkedin.com/in/Yasaswini-Arigela",
+                      href: "https://www.linkedin.com/in/yasaswini-arigela-b0a345333/",
                       icon: <Linkedin className="h-4 w-4" />,
                     },
                     {
                       label: "github.com/yasasswini-1808",
-                      href: "https://github.com/yasasswini-1808",
+                      href: "https://github.com/yasaswini-1808",
                       icon: <Github className="h-4 w-4" />,
                     },
                   ].map((link) => (
